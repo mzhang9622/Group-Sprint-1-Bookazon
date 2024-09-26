@@ -73,18 +73,72 @@ public class Order {
     public double calculatePrice(String subscription) {
         double totalPrice = 0.0;
 
+        // Calculate the total price of the cart items
         for (CartItem item : items) {
             totalPrice += item.getTotalPrice();
         }
 
-        if (subscription == "gold") {
-            totalPrice *= 0.15; // 15% discount for prime members
-        } else if (subscription == "platinum") {
-            totalPrice *= 0.10; // 10% discount for platinum members
-        } else if (subscription == "silver") {
-            totalPrice *= 0.05; // 5% discount for silver members
-        } 
+        // Get the discount using the factory and apply it
+        SubscriptionDiscount discount = SubscriptionDiscountFactory.getDiscount(subscription);
+        return discount.calculatePrice(totalPrice);
+    }
 
-        return totalPrice;
+    // Abstract class for different subscription discounts
+    abstract static class SubscriptionDiscount {
+        public abstract double calculatePrice(double totalPrice);
+    }
+
+    // Gold subscription class
+    static class GoldSubscription extends SubscriptionDiscount {
+        private static final double GOLD_DISCOUNT = 0.15;
+
+        @Override
+        public double calculatePrice(double totalPrice) {
+            return totalPrice * (1 - GOLD_DISCOUNT);  // Apply 15% discount
+        }
+    }
+
+    // Platinum subscription class
+    static class PlatinumSubscription extends SubscriptionDiscount {
+        private static final double PLATINUM_DISCOUNT = 0.10;
+
+        @Override
+        public double calculatePrice(double totalPrice) {
+            return totalPrice * (1 - PLATINUM_DISCOUNT);  // Apply 10% discount
+        }
+    }
+
+    // Silver subscription class
+    static class SilverSubscription extends SubscriptionDiscount {
+        private static final double SILVER_DISCOUNT = 0.05;
+
+        @Override
+        public double calculatePrice(double totalPrice) {
+            return totalPrice * (1 - SILVER_DISCOUNT);  // Apply 5% discount
+        }
+    }
+
+    // No subscription or invalid subscription class (no discount)
+    static class NoSubscription extends SubscriptionDiscount {
+        @Override
+        public double calculatePrice(double totalPrice) {
+            return totalPrice;  // No discount applied
+        }
+    }
+
+    // Factory class to return the appropriate discount object
+    static class SubscriptionDiscountFactory {
+        public static SubscriptionDiscount getDiscount(String subscription) {
+            switch (subscription.toLowerCase()) {
+                case "gold":
+                    return new GoldSubscription();
+                case "platinum":
+                    return new PlatinumSubscription();
+                case "silver":
+                    return new SilverSubscription();
+                default:
+                    return new NoSubscription();  // No discount for invalid subscriptions
+            }
+        }
     }
 }
