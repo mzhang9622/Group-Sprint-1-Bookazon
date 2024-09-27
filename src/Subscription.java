@@ -1,7 +1,7 @@
 
 
 public abstract class Subscription {
-    private double discount = 0;
+    private double discount;
 
     public Subscription(double discount) {
         this.discount = discount;
