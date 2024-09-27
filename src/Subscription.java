@@ -1,6 +1,14 @@
 
 
 public abstract class Subscription {
-    public abstract double getDiscount();
+    private double discount;
+
+    public Subscription(double discount) {
+        this.discount = discount;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
 }
 

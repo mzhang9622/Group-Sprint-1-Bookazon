@@ -10,6 +10,14 @@ public class Book extends Media {
         this.isPaperback = isPaperback;
     }
 
+    public void setisPaperBack(boolean isPaperback){
+        this.isPaperback = isPaperback;
+    }
+
+    public boolean isPaperback(){
+        return isPaperback;
+    }
+
     public void printBookDetails() {
         System.out.println("Title: " + title);
         System.out.println("Creator: " + creator);

@@ -8,13 +8,11 @@ public class Order {
     private ShippingAddress shippingAddress;
     private BillingAddress billingAddress;
     private ArrayList<CartItem> items;
-    private double orderPrice;
     private Subscription subscription;
 
     public Order(Cart cart, Subscription subscription, ShippingAddress shippingAdress, BillingAddress billingAdress) {
         this.items = cart.getItems();
         this.subscription = subscription;
-        this.orderPrice = calculatePrice(subscription);
         this.shippingAddress = shippingAdress;
         this.billingAddress = billingAdress;
     }
@@ -51,25 +49,7 @@ public class Order {
         System.out.println("Order Status: " + orderStatus);
         this.shippingAddress.printAddress();
         this.billingAddress.printAddress();
-        System.out.println("Order Price: $" + orderPrice);
-    }
-
-    public double calculatePrice(String subscription) {
-        double totalPrice = 0.0;
-
-        for (CartItem item : items) {
-            totalPrice += item.getTotalPrice();
-        }
-
-        if (subscription == "gold") {
-            totalPrice *= 0.15; // 15% discount for prime members
-        } else if (subscription == "platinum") {
-            totalPrice *= 0.10; // 10% discount for platinum members
-        } else if (subscription == "silver") {
-            totalPrice *= 0.05; // 5% discount for silver members
-        } 
-
-        return totalPrice;
+        System.out.println("Order Price: $" + calculateTotalPrice());
     }
 
     public double calculateTotalPrice(){

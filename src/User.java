@@ -3,13 +3,13 @@ import java.util.ArrayList;
 
 public class User {
     private String name;
-    private String subscription;
+    private Subscription subscription;
     private Cart cart;
     private ArrayList<Order> orders;
     private ShippingAddress shippingAddress;
     private BillingAddress billingAddress;
 
-    public User(String name, String subscription, ShippingAddress shippingAddress, BillingAddress billingAddress) {
+    public User(String name, Subscription subscription, ShippingAddress shippingAddress, BillingAddress billingAddress) {
         this.name = name;
         this.subscription = subscription;  // normal, gold, platinum, silver membership
         this.cart = new Cart();
@@ -20,14 +20,6 @@ public class User {
 
     public String getName() {
         return name;
-    }
-
-    public String getSubscription() {
-        return subscription;
-    }
-
-    public void setSubscription(String role) {
-        this.subscription = role;
     }
 
     public void viewCart() {
@@ -68,7 +60,7 @@ public class User {
     }
 
     public void checkout() {
-        Order order = new Order(cart, this.subscription, this.shippingAddress, this.billingAddress);
+        Order order = new Order(cart, subscription, this.shippingAddress, this.billingAddress);
         order.setOrderStatus("Order Placed");
         order.setDateCreated("2024-01-01");
         order.setUserName(this.name);

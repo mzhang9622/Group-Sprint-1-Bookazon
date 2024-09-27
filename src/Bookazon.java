@@ -27,7 +27,7 @@ public class Bookazon {
 
     public void viewUsers() {
         for (User user : users) {
-            System.out.println(user.getName() + " - Role: " + user.getSubscription());
+            System.out.println(user.getName());
         }
     }
 
@@ -38,11 +38,6 @@ public class Bookazon {
     public void removeUser(User user) {
         users.remove(user);
     }
-
-    public void updateRole(User user, String role) {
-        user.setSubscription(role);
-    }
-
     
     public static void main(String[] args) {
         
@@ -57,8 +52,10 @@ public class Bookazon {
         // create users
         ShippingAddress shippingAddress = new ShippingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
         BillingAddress billingAddress = new BillingAddress("456 Elm St", "", "Springfield", "IL", "62702", "USA");
-        bookazon.addUser(new User("Alice", "normal", shippingAddress, billingAddress));
-        bookazon.addUser(new User("Bob", "gold", shippingAddress, billingAddress));
+        SilverMember subscription = new SilverMember();
+        PlatinumMember subscription2 = new PlatinumMember();
+        bookazon.addUser(new User("Alice", subscription, shippingAddress, billingAddress));
+        bookazon.addUser(new User("Bob", subscription2, shippingAddress, billingAddress));
 
         // add books to cart
         bookazon.users.get(0).addToCart(bookazon.books.get(0), 1);
