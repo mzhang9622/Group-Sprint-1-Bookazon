@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.concurrent.Flow.Subscription;
 
 public class User {
     private String name;
@@ -32,16 +33,10 @@ public class User {
 
     public void setShippingAddress(ShippingAddress shippingAddress){
         this.shippingAddress = shippingAddress;
-        for(int i=0; i<orders.size(); i++){
-            orders.get(i).setShippingAddress(shippingAddress);
-        }
     }
 
     public void setBillingAddress(BillingAddress billingAddress){
         this.billingAddress = billingAddress;
-        for(int i=0; i<orders.size(); i++){
-            orders.get(i).setBillingAddress(billingAddress);
-        }
     }
 
     public void addToCart(Book book, int quantity) {
@@ -63,11 +58,11 @@ public class User {
         }
     }
 
-    public void checkout(String date, String date2) {
+    public void checkout(String dateCreated, String dateShipped) {
         Order order = new Order(cart, subscription, this.shippingAddress, this.billingAddress);
         order.setOrderStatus("Order Placed");
-        order.setDateCreated(date);
-        order.setDateShipped(date2);
+        order.setDateCreated(dateCreated);
+        order.setDateShipped(dateShipped);
         order.setUserName(this.name);
         orders.add(order);
     }
