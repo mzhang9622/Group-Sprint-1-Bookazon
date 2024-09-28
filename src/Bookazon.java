@@ -39,6 +39,7 @@ public class Bookazon {
     public void removeUser(User user) {
         users.remove(user);
     }
+
     
     public static void main(String[] args) {
         
@@ -48,7 +49,7 @@ public class Bookazon {
         bookazon.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
         bookazon.addBook(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, false));
         bookazon.addBook(new Book("1984", "George Orwell", 1949, 8.99, true));
-
+        
         // create users
         ShippingAddress shippingAddress = new ShippingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
         BillingAddress billingAddress = new BillingAddress("456 Elm St", "", "Springfield", "IL", "62702", "USA");
