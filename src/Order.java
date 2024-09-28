@@ -49,7 +49,7 @@ public class Order {
         System.out.println("Order Status: " + orderStatus);
         this.shippingAddress.printAddress();
         this.billingAddress.printAddress();
-        System.out.println("Order Price: $" + calculateTotalPrice());
+        System.out.println("Order Price: $" +  calculateTotalPrice());
     }
 
     public double calculateTotalPrice(){
