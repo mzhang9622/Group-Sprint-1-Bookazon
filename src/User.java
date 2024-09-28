@@ -9,10 +9,10 @@ public class User {
     private ShippingAddress shippingAddress;
     private BillingAddress billingAddress;
 
-    public User(String name, Subscription subscription, ShippingAddress shippingAddress, BillingAddress billingAddress) {
+    public User(String name, Subscription subscription, Cart cart, ShippingAddress shippingAddress, BillingAddress billingAddress) {
         this.name = name;
         this.subscription = subscription;  // normal, gold, platinum, silver membership
-        this.cart = new Cart();
+        this.cart = cart;
         this.orders = new ArrayList<>();
         this.shippingAddress = shippingAddress;
         this.billingAddress = billingAddress;

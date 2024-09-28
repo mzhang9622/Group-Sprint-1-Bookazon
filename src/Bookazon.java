@@ -53,11 +53,14 @@ public class Bookazon {
         ShippingAddress shippingAddress = new ShippingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
         BillingAddress billingAddress = new BillingAddress("456 Elm St", "", "Springfield", "IL", "62702", "USA");
 
+        Cart cart1 = new Cart();
+        Cart cart2 = new Cart();
+
         SilverMember silver = new SilverMember();
         RegularMember regular = new RegularMember();
 
-        bookazon.addUser(new User("Alice", silver, shippingAddress, billingAddress));
-        bookazon.addUser(new User("Bob", regular, shippingAddress, billingAddress));
+        bookazon.addUser(new User("Alice", silver, cart1, shippingAddress, billingAddress));
+        bookazon.addUser(new User("Bob", regular, cart2, shippingAddress, billingAddress));
         
         // see how many users
         bookazon.viewUsers();
