@@ -1,5 +1,3 @@
-
-
 public abstract class Subscription {
     private double discount;
 

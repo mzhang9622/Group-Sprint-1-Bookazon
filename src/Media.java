@@ -33,7 +33,7 @@ public abstract class Media {
         this.title = newTitle;
     }
 
-    public void setAuthor(String newCreator) {
+    public void setCreator(String newCreator) {
         this.creator = newCreator;
     }
 

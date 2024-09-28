@@ -22,6 +22,10 @@ public class User {
         return name;
     }
 
+    public Subscription getSubscription() {
+        return subscription;
+    }
+
     public void viewCart() {
         cart.viewCartDetails();
     }
@@ -59,10 +63,11 @@ public class User {
         }
     }
 
-    public void checkout() {
+    public void checkout(String date, String date2) {
         Order order = new Order(cart, subscription, this.shippingAddress, this.billingAddress);
         order.setOrderStatus("Order Placed");
-        order.setDateCreated("2024-01-01");
+        order.setDateCreated(date);
+        order.setDateShipped(date2);
         order.setUserName(this.name);
         orders.add(order);
     }
