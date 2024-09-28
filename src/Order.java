@@ -5,6 +5,7 @@ public class Order {
     private String dateShipped;
     private String userName;
     private String orderStatus;
+    private double discountApplied;
     private ShippingAddress shippingAddress;
     private BillingAddress billingAddress;
     private ArrayList<CartItem> items;
@@ -49,7 +50,9 @@ public class Order {
         System.out.println("Order Status: " + orderStatus);
         this.shippingAddress.printAddress();
         this.billingAddress.printAddress();
-        System.out.println("Order Price: $" +  calculateTotalPrice());
+        System.out.printf("Order Price: $%.2f", calculateTotalPrice());
+        System.out.println();
+        System.out.printf("Discounted: $%.2f", discountApplied);
     }
 
     public double calculateTotalPrice(){
@@ -61,6 +64,9 @@ public class Order {
         }
 
         double discount = subscription.getDiscount();
+
+        this.discountApplied = discount * totalPrice;
+
         return totalPrice * (1 - discount); 
 
     }
