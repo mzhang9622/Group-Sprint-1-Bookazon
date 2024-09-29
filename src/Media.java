@@ -5,7 +5,7 @@ public abstract class Media {
     private double price;
 
 
-    public Media (String title, String creator, int yearPublished, double price) {
+    public Media(String title, String creator, int yearPublished, double price) {
 
         this.title = title;
         this.creator = creator;
