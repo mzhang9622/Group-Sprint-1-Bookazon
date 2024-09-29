@@ -1,5 +1,5 @@
 public class DVD extends Media {
-    private boolean hasBloopers;  // true if the book is paperback, false if it is hardcover
+    private boolean hasBloopers;  // true if there are bloopers in the DVD, false if not
 
     public DVD(String title, String creator, int yearPublished, double price, boolean hasBloopers) {
         super(title, creator, yearPublished, price);

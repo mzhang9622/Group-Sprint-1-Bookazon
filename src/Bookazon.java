@@ -48,7 +48,13 @@ public class Bookazon {
         bookazon.addMedia(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
         bookazon.addMedia(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, false));
         bookazon.addMedia(new Book("1984", "George Orwell", 1949, 8.99, true));
-        
+
+        // create other media
+        bookazon.addMedia(new CD("The Magic Shop", "BTS", 2018, 12.99, false));
+        bookazon.addMedia(new DVD("The Lion King, Part 1", "Walt Disney", 1994, 9.99, false));
+        bookazon.addMedia(new eBook("Harry Potter and Chamber of Secrets", "J.K. Rowling", 1998, 10.99, 2015));
+        bookazon.addMedia(new AudioBook("Harry Potter and the Prisoner of Azkaban", "J.K. Rowling", 2015, 29.99, "Jim Dale"));
+
         // create users
         ShippingAddress shippingAddress = new ShippingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
         BillingAddress billingAddress = new BillingAddress("456 Elm St", "", "Springfield", "IL", "62702", "USA");
@@ -70,9 +76,13 @@ public class Bookazon {
         // add books to cart
         bookazon.users.get(0).addToCart(bookazon.media.get(0), 1);
         bookazon.users.get(0).addToCart(bookazon.media.get(1), 2);
+        bookazon.users.get(0).addToCart(bookazon.media.get(3), 1);
+        bookazon.users.get(0).addToCart(bookazon.media.get(4), 2);
 
         bookazon.users.get(1).addToCart(bookazon.media.get(2), 3);
         bookazon.users.get(1).addToCart(bookazon.media.get(1), 1);
+        bookazon.users.get(1).addToCart(bookazon.media.get(5), 1);
+        bookazon.users.get(1).addToCart(bookazon.media.get(6), 1);
 
         // view cart
         bookazon.users.get(0).viewCart();
@@ -86,6 +96,9 @@ public class Bookazon {
 
         bookazon.users.get(1).setShippingAddress(new ShippingAddress("4000 Mayflower Hill", "", "Waterville", "ME", "04901", "USA"));
         bookazon.users.get(1).setBillingAddress(new BillingAddress("888 Elm St", "", "Springfield", "IL", "62702", "USA"));
+
+        // Removing some media
+        bookazon.users.get(0).removeFromCart(bookazon.media.get(4));
 
         // checkout
         bookazon.users.get(0).checkout("09/27/2024", "10/01/2024");
@@ -106,7 +119,9 @@ public class Bookazon {
         // other testing
         System.out.println("\n");
 
-        // System.out.println(bookazon.media.get(0).isPaperback());
+
+
+        
 
 
 
