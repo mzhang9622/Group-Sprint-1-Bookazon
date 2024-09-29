@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 
 public class Bookazon {
@@ -69,11 +68,11 @@ public class Bookazon {
         System.out.println();
 
         // add books to cart
-        bookazon.users.get(0).addToCart(bookazon.books.get(0), 1);
-        bookazon.users.get(0).addToCart(bookazon.books.get(1), 2);
+        bookazon.users.get(0).addToCart(bookazon.media.get(0), 1);
+        bookazon.users.get(0).addToCart(bookazon.media.get(1), 2);
 
-        bookazon.users.get(1).addToCart(bookazon.books.get(2), 3);
-        bookazon.users.get(1).addToCart(bookazon.books.get(1), 1);
+        bookazon.users.get(1).addToCart(bookazon.media.get(2), 3);
+        bookazon.users.get(1).addToCart(bookazon.media.get(1), 1);
 
         // view cart
         bookazon.users.get(0).viewCart();
@@ -107,7 +106,7 @@ public class Bookazon {
         // other testing
         System.out.println("\n");
 
-        System.out.println(bookazon.media.get(0).isPaperback());
+        // System.out.println(bookazon.media.get(0).isPaperback());
 
 
 
