@@ -1,94 +1,79 @@
-# Group Sprint 1: Bookazon
-An assignment for redesigning software and refactoring code smells.  Part of Software Engineering class CS321, fall 2024.
-
-## Project Objectives
-- Practice redesigning a software project with guidance from **SOLID design principles**.
-- Refactor code to address **design smells** and enhance **readability** and **maintainability**.
-- Apply **Agile Scrum** and **project management** fundamentals.
-- Collaborate as a team using **Git** and **GitHub** effectively.
-
----
+# HashMap Overflow Sprint 1: Bookazon
+# Claire Yu, Ming Zhang, Jordan Smith, and Tim Pratt
+# CS321 Software Engineering
 
 ## Overview
-In this project, you will work in small teams to **extend** and **improve** an existing online book store. The project focuses on adding new functionality while ensuring the system adheres to **key software design principles**. Throughout the project, you will practice collaborative development via GitHub, utilizing best practices such as **issue tracking**, **code reviews**, and **feature branching**.
+This repository contains the code for extending and improving an existing online Bookstore called "Bookazon," where an user can place an order for a variety of media types to be shipped (e.g. books, DVDs, and ebooks). By placing an order, a user can add/remove items and apply certain discounts depending on their membership. Throughtout this project, we gained a better understanding in using Git/Github Command, demonstrating Agile fundamentals, and working collaboratively. 
 
----
+## Bookazon
+The `Bookazon` is the main class where all the functionalities from the other class are being used and tested. There exists a main method to be certain that all the methods are working properly. 
 
-## Repository Management
-- The **repo manager** should begin by forking the project repository on GitHub and adding all team members as collaborators.  
-  - **Starting Repository:** [Link to be provided]
-- The forked repository will serve as your team's workspace. All progress will be tracked through GitHub.
+## Address
+The `address` is an abstract class that is shared by the BillingAddress and ShippingAddress
 
----
+## BillingAddress
+The `BillingAddress` is a class that extends from the Address, to print out the billing information for an user. 
 
-## Class Diagram and Code Review
-- Draw a **UML class diagram** to visualize the system's structure and component relationships.
-- Have a group discussion on the current **design** and **code** to ensure all team members understand the system.
-  
----
+## ShippingAddress
+The `ShippingAddress` is a class that extends from the Address, to print out the shipping information for an user. 
 
-## SOLID Principles, Code Smells, and Technical Debt
-- Identify **design problems** in the system that violate **SOLID principles**.
-- Make a list of any **code smells** (e.g., duplicated code, long methods, or classes with too many responsibilities).
-- Document each issue clearly, providing examples from the codebase.
+## Cart
+The `Cart` is a class to hold what items an user is currently looking to purchase. 
 
----
+## CartItem
+The `CartItem` is a class that extends from the Cart, to add each item into a Cart
 
-## Propose Solutions and Create Issues
-- Discuss potential solutions for each identified design problem and code smell.
-- Add these problems as **issues** in your GitHub repository. Each issue should include:
-  - A clear description of the problem (with references to the code).
-  - The proposed solution (e.g., refactoring, code redesign, or applying SOLID principles).
+## Subscription
+The `Subscription` is a class that is used to distinguish the user's membership and apply the correct discount, respectively. 
 
----
+## GoldMember
+The `GoldMember` is a class that extends from Subscription, therefore applying the Gold Membership discount to the user.
 
-## Adding New Features
-- Extend the system's functionality by:
-  - **Updating the order printing** to include discount details.
-  - Expanding the system to support **new media types**: audiobooks, DVDs, and e-books.
-- Plan the necessary design changes to incorporate these new features while maintaining SOLID principles.
+## PlatinumMember
+The `PlatinumMember` is a class that extends from Subscription, therefore applying the Platinum Membership discount to the user.
 
----
+## RegularMember
+The `RegularMember` is a class that extends from Subscription, therefore applying the Regular Membership discount to the user.
 
-## Milestone and Issue Organization
-- The **backlog manager** is responsible for organizing identified issues into a **milestone**.
-- Properly **label** each issue, indicating its type (e.g., "bug," "enhancement," "refactoring") and priority level.
+## SilverMember
+The `SilverMember` is a class that extends from Subscription, therefore applying the Silver Membership discount to the user.
 
----
+## Media
+The `Media` is a class that allows other media types to be used, such that not only books are available in "Bookazon"
 
-## Teamwork and GitHub Practices
-- Each team member should select **one issue** at a time to work on and may take on another only after completing the current one.
-- Follow Git/GitHub practices by:
-  - Creating a **feature branch** for each issue.
-  - Ensuring that your branch doesn't break the system (test your changes).
-  - **Opening a pull request (PR)** to merge your changes back into the main branch.
-- **Code Reviews:** Each team member must review at least **one PR** from another member to ensure code quality and consistency.
-- Keep the **main branch** in a working state at all times. No broken or unfinished code should be merged into the main branch.
-- Ensure no **stale feature branches** remain after a milestone. Clean up unused branches.
+## Order
+The `Order` is a class that allows users to place an order whenever they are ready to checkout
 
----
+## User
+The `User` is a class that provides the methods for a User's functionalitites
 
-## Extensions
-- Fix all coding style issues with guidance from a tool such as **CheckStyle**. Document your progress with **before/after snapshots** of the code.
-- Create a **burndown chart** for this sprint using GitHub or another tool.
-- Add a **creative and elaborate `README.md`** file to your repository explaining the work you did. This should be more creative than the project report.
+## Data Structures
+We used arrayLists in this project to demonstrate a working Bookazon
 
----
+## Control Flow
+Bookazon is implemented in Bookazon.java, with the calls of other functions also in the repository.
 
-## Report (Google Doc)
-Organize a **Google Doc report** with the following sections, including screenshots and text to communicate the objectives of your work:
+## main
+The `main` function initializes the other modulues presented in the repository to have everything working properly. 
 
-1. **Abstract:**  
-   A brief summary of the Sprint in your own words (no more than 150 words). Give context and summarize the outcome.
+## Implementation
+Bookazon was implemented by initially identifying the possible code smells and issues that were presented in the code, and then proposing solutions to each issue encountered. From there, we were able to distinguish what needed to fix, and then collaboratively work together to fix all the problems found. This allowed us to to have a software project that followed the guidance of the SOLID Principles and result with no CODE smells presented
 
-2. **Results:**  
-   A section outlining the results of your Sprint, including links to your **public repository**.
+## Function prototype
+# Bookazon
+Below is each function's interface in Bookazon to apply the other classes created in this project.
+```java
+public Bookazon();
+public void addBook(Book book);
+public void addUser(User user);
+public void viewBooks();
+public void viewUsers();
+public void removeBook(Book book);
+public void removeUser(User user);
+public static void main(String[] args);
+```
 
-3. **Reflection:**  
-   Reflect on what you learned during the Sprint.
+## Testing Plan
+# Integration/System testing
+We tested Bookazon through using the main to check each method we have updated was working correctly. For instance, when we updated Bookazon to include more forms of media, we need to make sure that Users could add/remove various media types from their cart. We verified that our system was working by studying the output and confirming it logically. 
 
-4. **Extensions:**  
-   Describe any extensions you undertook, supported by text output, graphs, tables, or images.
-
-5. **References/Acknowledgements/AI Use Documentation:**  
-   List any references used and acknowledge AI tools, if applicable, that contributed to your work.
