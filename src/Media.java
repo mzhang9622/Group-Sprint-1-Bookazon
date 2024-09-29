@@ -45,4 +45,12 @@ public abstract class Media {
         this.price = newPrice;
     }
 
+    public void printDetails() {
+        System.out.println("Title: " + title);
+        System.out.println("Creator: " + creator);
+        System.out.println("Year Published: " + yearPublished);
+        System.out.println("Price: $" + price);
+
+    }
+
 }
