@@ -18,9 +18,11 @@ public class Book extends Media {
         return isPaperback;
     }
 
-    public void printBookDetails() {
+    @Override
+    public void printDetails() {
+        System.out.println("Media Type: Book");
         System.out.println("Title: " + title);
-        System.out.println("Creator: " + creator);
+        System.out.println("Author: " + creator);
         System.out.println("Year Published: " + yearPublished);
         System.out.println("Price: $" + price);
 

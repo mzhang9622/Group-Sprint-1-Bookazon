@@ -3,25 +3,25 @@ import java.util.ArrayList;
 
 public class Bookazon {
 
-    private ArrayList<Book> books;
+    private ArrayList<Media> media;
     private ArrayList<User> users;
 
     public Bookazon() {
-        books = new ArrayList<>();
+        media = new ArrayList<>();
         users = new ArrayList<>();
     }
 
-    public void addBook(Book book) {
-        books.add(book);
+    public void addMedia(Media m) {
+        media.add(m);
     }
 
     public void addUser(User user) {
         users.add(user);
     }
 
-    public void viewBooks() {
-        for (Book book : books) {
-            book.printBookDetails();
+    public void viewMedia() {
+        for (Media m : media) {
+            m.printDetails();
         }
     }
 
@@ -32,8 +32,8 @@ public class Bookazon {
         }
     }
 
-    public void removeBook(Book book) {
-        books.remove(book);
+    public void removeMedia(Media m) {
+        media.remove(m);
     }
 
     public void removeUser(User user) {
@@ -46,9 +46,9 @@ public class Bookazon {
         Bookazon bookazon = new Bookazon();
         
         // create books
-        bookazon.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
-        bookazon.addBook(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, false));
-        bookazon.addBook(new Book("1984", "George Orwell", 1949, 8.99, true));
+        bookazon.addMedia(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
+        bookazon.addMedia(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, false));
+        bookazon.addMedia(new Book("1984", "George Orwell", 1949, 8.99, true));
         
         // create users
         ShippingAddress shippingAddress = new ShippingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
@@ -97,7 +97,7 @@ public class Bookazon {
         System.out.println();
 
         // remove book from cart
-        bookazon.users.get(1).removeFromCart(bookazon.books.get(2));
+        bookazon.users.get(1).removeFromCart(bookazon.media.get(2));
 
         System.out.println();
 
@@ -107,7 +107,7 @@ public class Bookazon {
         // other testing
         System.out.println("\n");
 
-        System.out.println(bookazon.books.get(0).isPaperback());
+        System.out.println(bookazon.media.get(0).isPaperback());
 
 
 
